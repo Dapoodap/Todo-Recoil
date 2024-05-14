@@ -32,6 +32,11 @@ function App() {
     newTodos[index] = {...todos[index],status:status};
     setTodos(newTodos);
   }
+  const DeletTask = (index) =>{
+    let newTodos = [...todos];
+    newTodos.splice(index,1)
+    setTodos(newTodos);
+  }
   const ConcatLink = (str) =>{
     if (str.length > 11) {
       return str.substring(0, 11 - 3) + '...';
@@ -85,7 +90,7 @@ function App() {
                 <button onClick={() => UpdateStatus(index,"doing")} className={`text-sm py-1 px-3 rounded-lg ${item.status === "doing" ? "disabled:" : "bg-gray-300 text-gray-800"} hover:bg-blue-600 hover:text-white focus:outline-none focus:bg-blue-600`}>Doing</button>
                 <button onClick={() => UpdateStatus(index,"done")} className={`text-sm py-1 px-3 rounded-lg ${item.status === "done" ? "disabled:" : "bg-gray-300 text-gray-800"} hover:bg-blue-600 hover:text-white focus:outline-none focus:bg-blue-600`}>Done</button>
               </div>
-              <BiTrash className="mt-3 text-3xl text-[#98A2B3]"/>
+              <BiTrash onClick={()=>{DeletTask(index)}} className="mt-3 text-3xl text-[#98A2B3]"/>
               </div>
             </div>
           </div>
@@ -121,7 +126,7 @@ function App() {
                   <button className={`text-sm py-1 px-3 rounded-lg ${item.status === "doing" ? "disabled:" : "bg-gray-300 text-gray-800"} `}>Doing</button>
                   <button onClick={() => UpdateStatus(index,"done")} className={`text-sm py-1 px-3 rounded-lg ${item.status === "done" ? "disabled:" : "bg-gray-300 text-gray-800"} hover:bg-blue-600 hover:text-white focus:outline-none focus:bg-blue-600`}>Done</button>
                 </div>
-                <BiTrash className="mt-3 text-3xl text-[#98A2B3]"/>
+                <BiTrash onClick={()=>{DeletTask(index)}} className="mt-3 text-3xl text-[#98A2B3]"/>
               </div>
               
             </div>
@@ -158,7 +163,7 @@ function App() {
                 <button onClick={() => UpdateStatus(index,"doing")} className={`text-sm py-1 px-3 rounded-lg ${item.status === "doing" ? "disabled:" : "bg-gray-300 text-gray-800"} hover:bg-blue-600 hover:text-white focus:outline-none focus:bg-blue-600`}>Doing</button>
                 <button  className={`text-sm py-1 px-3 rounded-lg ${item.status === "done" ? "disabled:" : "bg-gray-300 text-gray-800"} `}>Done</button>
               </div>
-              <BiTrash className="mt-3 text-3xl text-[#98A2B3]"/>
+              <BiTrash onClick={()=>{DeletTask(index)}} className="mt-3 text-3xl text-[#98A2B3]"/>
               </div>
               
             </div>
